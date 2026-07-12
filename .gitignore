@@ -1,0 +1,5 @@
+src/
+*.env
+*.key
+*.pem
+__pycache__/
