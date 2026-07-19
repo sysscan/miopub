@@ -13,6 +13,7 @@ local GAMES = {
 	{ slug = "overkill", placeIds = { 124842176624983 }, universeIds = { 8420998291 } },
 	{ slug = "killstreak", placeIds = { 90184287580174 } },
 	{ slug = "catch-and-tame", placeIds = { 96645548064314 }, universeIds = { 9091133975 } },
+	{ slug = "drain-the-lake", placeIds = { 138381251771774, 124786371598438 }, universeIds = { 10267363348 } },
 }
 
 local ALIASES = {
