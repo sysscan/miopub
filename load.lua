@@ -138,8 +138,8 @@ local now = typeof(tick) == "function" and tick() or os.time()
 local stamp = tostring(math.floor(now))
 
 -- Mio releases are generated locally with the maximum/hardened profile. Do not
--- fall back to Atlas or a readable bundle: a missing Mio artifact is a release
--- error, not permission to launch a differently branded or unprotected build.
+-- fall back to a readable bundle: a missing Mio artifact is a release error,
+-- not permission to launch an unprotected build.
 local FILENAMES = {
 	"bundle-obfuscated.lua",
 }
