@@ -131,6 +131,14 @@ if typeof(loadstring) ~= "function" then
 	error("[MioHub] loadstring unavailable", 0)
 end
 
+local executionEnvironment = _G
+if typeof(getfenv) == "function" then
+	local ok, environment = pcall(getfenv, 0)
+	if ok and type(environment) == "table" then
+		executionEnvironment = environment
+	end
+end
+
 local slug = selectGame()
 if not slug then
 	error("[MioHub] this game is not supported (PlaceId " .. tostring(game.PlaceId) .. ", GameId " .. tostring(game.GameId) .. ")", 0)
@@ -165,7 +173,7 @@ for _, attempt in ipairs(attempts) do
 	if ok and looksLikeBundle(source) then
 		local fn, compileError = loadstring(source, "@miohub/" .. attempt.path)
 		if fn then
-			return fn()
+			return fn(executionEnvironment)
 		end
 		lastError = "compile error: " .. tostring(compileError)
 	elseif ok then
