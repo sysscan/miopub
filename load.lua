@@ -14,11 +14,13 @@ local GAMES = {
 	{ slug = "killstreak", placeIds = { 90184287580174 } },
 	{ slug = "catch-and-tame", placeIds = { 96645548064314 }, universeIds = { 9091133975 } },
 	{ slug = "drain-the-lake", placeIds = { 138381251771774, 124786371598438 }, universeIds = { 10267363348 } },
+	{ slug = "phantom-forces", placeIds = { 292439477 } },
 }
 
 local ALIASES = {
 	ar2 = "apocalypse-rising-2",
 	mm2 = "murder-mystery-2",
+	pf = "phantom-forces",
 }
 
 local function contains(values, target): boolean
