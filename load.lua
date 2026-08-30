@@ -2,25 +2,25 @@ local REPO = "sysscan/miopub"
 local BRANCH = "main"
 
 local GAMES = {
-	{ slug = "warfare", placeIds = { 81748781442029, 83902709332473 } },
+	{ slug = "phantom-forces", placeIds = { 292439477 } },
 	{ slug = "apocalypse-rising-2", placeIds = { 863266079 }, universeIds = { 358276974 } },
-	{
-		slug = "clean-the-library",
-		placeIds = { 109881277752094, 78079451644610, 89238670762026, 93995531664434, 115091863501564, 101950101356168 },
-		universeIds = { 10226701629 },
-	},
-	{ slug = "murder-mystery-2", placeIds = { 142823291 }, universeIds = { 66654135 } },
+	{ slug = "arsenal", placeIds = { 286090429 }, universeIds = { 111958650 } },
 	{ slug = "overkill", placeIds = { 124842176624983 }, universeIds = { 8420998291 } },
 	{ slug = "killstreak", placeIds = { 90184287580174 } },
-	{ slug = "catch-and-tame", placeIds = { 96645548064314 }, universeIds = { 9091133975 } },
-	{ slug = "drain-the-lake", placeIds = { 138381251771774, 124786371598438 }, universeIds = { 10267363348 } },
-	{ slug = "phantom-forces", placeIds = { 292439477 } },
+	{ slug = "eclipsis-match", placeIds = { 617834035 }, universeIds = { 252475658 } },
+	{ slug = "aqp-deadzone", placeIds = { 106920577206536 }, universeIds = { 9889811676 } },
+	{ slug = "frontlines", placeIds = { 5938036553 }, universeIds = { 2132866904 } },
+	{ slug = "scp-roleplay", placeIds = { 5041144419 }, universeIds = { 1742264997 } },
+	{ slug = "murder-mystery-2", placeIds = { 142823291 }, universeIds = { 66654135 } },
 }
 
 local ALIASES = {
 	ar2 = "apocalypse-rising-2",
 	mm2 = "murder-mystery-2",
 	pf = "phantom-forces",
+	aqp = "aqp-deadzone",
+	eclipsis = "eclipsis-match",
+	scp = "scp-roleplay",
 }
 
 local function contains(values, target): boolean
