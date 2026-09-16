@@ -1,0 +1,17 @@
+# Published bundles are verified byte-for-byte by the loader before it runs
+# them: it fetches the expected sha256 from the auth Worker and refuses to
+# execute anything that does not match. That hash is computed at BUILD time
+# over the exact UTF-8/LF bytes, so any line-ending normalisation between the
+# build and what raw.githubusercontent serves would make every client fail to
+# launch.
+#
+# Git must therefore never touch these files. They survive today only because
+# git's content heuristic happens to classify them as binary; that is a
+# property of the bytes, not a policy, and a future bundle could look textier.
+# Declare it instead of relying on the guess.
+#
+# tools/publish_public.py refuses to publish into a checkout where these paths
+# are not marked -text, and re-hashes each published file against its manifest.
+games/**/bundle-obfuscated.lua -text
+games/**/*.lua -text
+load.lua -text
