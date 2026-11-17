@@ -2,8 +2,9 @@ local Game = game;
 local Players = Game : GetService( "Players" );
 local HttpService = Game : GetService( "HttpService" );
 local Player = Players.LocalPlayer;
-local Invite = "https://discord.gg/bXtfksjzZf";
-local InviteCode = "bXtfksjzZf";
+local Invite = "https://discord.gg/nfxDRXutBm";
+local InviteCode = "nfxDRXutBm";
+local Shop = "https://pay.mwstack.dev";
 local Scope = getfenv( );
 local Environments = { Scope };
 local PCall = pcall;
@@ -71,49 +72,55 @@ local Screen = Create( "ScreenGui", {
 }, Parent );
 local Panel = Create( "Frame", {
     AnchorPoint = Vector2.new( 0.5, 0.5 ), Position = UDim2.fromScale( 0.5, 0.5 ),
-    Size = UDim2.new( 0.9, 0, 0, 306 ), BackgroundColor3 = Color3FromRGB( 22, 20, 26 ), BorderSizePixel = 0,
+    Size = UDim2.new( 0.9, 0, 0, 392 ), BackgroundColor3 = Color3FromRGB( 22, 20, 26 ), BorderSizePixel = 0,
 }, Screen );
-Create( "UISizeConstraint", { MaxSize = Vector2.new( 460, 306 ) }, Panel );
+Create( "UISizeConstraint", { MaxSize = Vector2.new( 460, 392 ) }, Panel );
 Create( "UICorner", { CornerRadius = UDim.new( 0, 14 ) }, Panel );
 Create( "UIStroke", { Color = Color3FromRGB( 237, 116, 174 ), Transparency = 0.35 }, Panel );
 
 Create( "TextLabel", {
     Position = UDim2FromOffset( 24, 20 ), Size = UDim2.new( 1, -48, 0, 34 ),
-    BackgroundTransparency = 1, Text = "Welcome to Mio", TextColor3 = Color3FromRGB( 237, 116, 174 ),
+    BackgroundTransparency = 1, Text = "Mio Hub", TextColor3 = Color3FromRGB( 237, 116, 174 ),
     Font = Enum.Font.GothamBold, TextSize = 26, TextXAlignment = Enum.TextXAlignment.Left,
 }, Panel );
 Create( "TextLabel", {
-    Position = UDim2FromOffset( 24, 62 ), Size = UDim2.new( 1, -48, 0, 60 ),
+    Position = UDim2FromOffset( 24, 62 ), Size = UDim2.new( 1, -48, 0, 100 ),
     BackgroundTransparency = 1,
-    Text = "This advertisement opens our Discord. Join to get the official hub loader, access instructions and game updates.",
+    Text = "Premium script hub for Roblox. A key unlocks every game.\n7 days  $3.99   |   30 days  $7.99   |   Lifetime  $12.99\nBuy a key at pay.mwstack.dev, redeem it in our Discord, then get the loader.",
     TextColor3 = Color3FromRGB( 224, 216, 230 ), Font = Enum.Font.Gotham, TextSize = 14,
     TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top,
 }, Panel );
 local Link = Create( "TextBox", {
-    Position = UDim2FromOffset( 24, 130 ), Size = UDim2.new( 1, -48, 0, 38 ),
+    Position = UDim2FromOffset( 24, 172 ), Size = UDim2.new( 1, -48, 0, 38 ),
     BackgroundColor3 = Color3FromRGB( 34, 30, 39 ), Text = Invite, ClearTextOnFocus = false,
     TextEditable = false, TextColor3 = Color3FromRGB( 240, 233, 244 ), Font = Enum.Font.Gotham, TextSize = 14,
 }, Panel );
 Create( "UICorner", { CornerRadius = UDim.new( 0, 8 ) }, Link );
 local Status = Create( "TextLabel", {
-    Position = UDim2FromOffset( 24, 176 ), Size = UDim2.new( 1, -48, 0, 36 ),
+    Position = UDim2FromOffset( 24, 218 ), Size = UDim2.new( 1, -48, 0, 36 ),
     BackgroundTransparency = 1, Text = "Opening the Discord invite...", TextColor3 = Color3FromRGB( 195, 179, 202 ),
     Font = Enum.Font.Gotham, TextSize = 12, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left,
 }, Panel );
 local Open = Create( "TextButton", {
-    Position = UDim2FromOffset( 24, 222 ), Size = UDim2.new( 0.5, -30, 0, 40 ),
+    Position = UDim2FromOffset( 24, 264 ), Size = UDim2.new( 0.5, -30, 0, 40 ),
     BackgroundColor3 = Color3FromRGB( 237, 116, 174 ), Text = "Open Discord",
     TextColor3 = Color3FromRGB( 24, 19, 25 ), Font = Enum.Font.GothamBold, TextSize = 14,
 }, Panel );
 Create( "UICorner", { CornerRadius = UDim.new( 0, 8 ) }, Open );
 local Copy = Create( "TextButton", {
-    Position = UDim2.new( 0.5, 6, 0, 222 ), Size = UDim2.new( 0.5, -30, 0, 40 ),
+    Position = UDim2.new( 0.5, 6, 0, 264 ), Size = UDim2.new( 0.5, -30, 0, 40 ),
     BackgroundColor3 = Color3FromRGB( 47, 38, 51 ), Text = "Copy invite",
     TextColor3 = Color3FromRGB( 240, 233, 244 ), Font = Enum.Font.GothamBold, TextSize = 14,
 }, Panel );
 Create( "UICorner", { CornerRadius = UDim.new( 0, 8 ) }, Copy );
+local Buy = Create( "TextButton", {
+    Position = UDim2FromOffset( 24, 314 ), Size = UDim2.new( 1, -48, 0, 40 ),
+    BackgroundColor3 = Color3FromRGB( 47, 38, 51 ), Text = "Copy shop link  (pay.mwstack.dev)",
+    TextColor3 = Color3FromRGB( 240, 233, 244 ), Font = Enum.Font.GothamBold, TextSize = 14,
+}, Panel );
+Create( "UICorner", { CornerRadius = UDim.new( 0, 8 ) }, Buy );
 local Close = Create( "TextButton", {
-    Position = UDim2FromOffset( 24, 273 ), Size = UDim2.new( 1, -48, 0, 22 ),
+    Position = UDim2FromOffset( 24, 362 ), Size = UDim2.new( 1, -48, 0, 22 ),
     BackgroundTransparency = 1, Text = "Close", TextColor3 = Color3FromRGB( 170, 156, 181 ),
     Font = Enum.Font.Gotham, TextSize = 12,
 }, Panel );
@@ -166,7 +173,7 @@ local function OpenDiscord( )
         Busy = false;
         Open.Text = "Open Discord";
         if ( Success and Type( Response ) == "table" and tonumber( Response.StatusCode ) == 200 ) then
-            Status.Text = "Invite requested. Check Discord to finish joining and get the official loader.";
+            Status.Text = "Invite requested. Check Discord to finish joining, then redeem your key.";
             return;
         end
         Status.Text = "Couldn't open Discord here. Copy the invite or open it in your browser.";
@@ -190,8 +197,23 @@ local function CopyInvite( )
     Status.Text = "Select the invite above and copy it into Discord or your browser.";
 end
 
+local function CopyShop( )
+    if ( not Alive( ) ) then
+        return;
+    end
+    if ( Type( Clipboard ) == "function" ) then
+        local Success, Result = PCall( Clipboard, Shop );
+        if ( Success and Result ~= false ) then
+            Status.Text = "Shop link copied. Paste it into your browser to buy a key.";
+            return;
+        end
+    end
+    Status.Text = "Open " .. Shop .. " in your browser to buy a key.";
+end
+
 Open.Activated : Connect( OpenDiscord );
 Copy.Activated : Connect( CopyInvite );
+Buy.Activated : Connect( CopyShop );
 Close.Activated : Connect( function( )
     Attempt += 1;
     Screen : Destroy( );
